@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.coletaneaicm.coletanea.coletanea.MusicaActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quando te Prostrares"
+        android:textSize="28dp"
+        android:paddingBottom="15dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:text="Ritmo: Básico 2
+
+Cantar 2x
+Em             Bm
+|Quando te pros|trares
+C          G     E7
+|Diante de |Deus
+Am            Em
+|Lembra que Je|sus
+        Am      B7
+Está con|ti  -  |go.
+Em          Bm
+|Pede seu au|xílio,
+C            G     E7
+|Pede seu per|dão,
+Am            Em
+|Lembra que Je|sus
+       Am      D    G    (D para repetir)
+É teu a|bri    —    |go.
+
+C              G
+|Deixa que o Se|nhor
+Am      D7     G
+|Mude o |teu vi|ver;
+Am            Em          Am     D7  G
+|Lembra que Je|sus é teu a|mi    —   |go.
+
+Cantar 2x
+C            G
+|Venha sobre |nós, (Ó Deus)
+Am     D      Em
+|Venha |sobre |nós,
+C           G          Am          D    G
+|Seja sobre |nós a tua |gra   -    |ça.
+
+        "/>
+
+</LinearLayout>
