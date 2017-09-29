@@ -3,6 +3,8 @@ package com.coletaneaicm.coletanea.coletanea.retrofit;
 import com.coletaneaicm.coletanea.coletanea.Entities.Colecoes;
 import com.coletaneaicm.coletanea.coletanea.services.CategoriasService;
 import com.coletaneaicm.coletanea.coletanea.services.ColecoesService;
+import com.coletaneaicm.coletanea.coletanea.services.MusicaService;
+import com.coletaneaicm.coletanea.coletanea.services.MusicasService;
 
 import java.util.List;
 
@@ -28,6 +30,14 @@ public class RetrofitInicializador {
 
     public CategoriasService getCategorias() {
         return retrofit.create(CategoriasService.class);
+    }
+
+    public MusicasService getMusicas() {
+        return retrofit.create(MusicasService.class);
+    }
+
+    public MusicaService getMusica() {
+        return retrofit.create(MusicaService.class);
     }
 
 

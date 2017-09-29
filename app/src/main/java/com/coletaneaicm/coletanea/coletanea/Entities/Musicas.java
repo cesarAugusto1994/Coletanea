@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by cesar on 28/09/17.
  */
-public class Categorias implements Serializable {
+public class Musicas implements Serializable {
 
     private Integer id;
 

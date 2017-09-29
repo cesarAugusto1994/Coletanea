@@ -13,49 +13,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quando te Prostrares"
         android:textSize="28dp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="15dp"
+        android:id="@+id/musica_nome"/>
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:justificationMode="inter_word"
-        android:text="Ritmo: Básico 2
-
-Cantar 2x
-Em             Bm
-|Quando te pros|trares
-C          G     E7
-|Diante de |Deus
-Am            Em
-|Lembra que Je|sus
-        Am      B7
-Está con|ti  -  |go.
-Em          Bm
-|Pede seu au|xílio,
-C            G     E7
-|Pede seu per|dão,
-Am            Em
-|Lembra que Je|sus
-       Am      D    G    (D para repetir)
-É teu a|bri    —    |go.
-
-C              G
-|Deixa que o Se|nhor
-Am      D7     G
-|Mude o |teu vi|ver;
-Am            Em          Am     D7  G
-|Lembra que Je|sus é teu a|mi    —   |go.
-
-Cantar 2x
-C            G
-|Venha sobre |nós, (Ó Deus)
-Am     D      Em
-|Venha |sobre |nós,
-C           G          Am          D    G
-|Seja sobre |nós a tua |gra   -    |ça.
-
-        "/>
+        android:id="@+id/musica_letra"/>
 
 </LinearLayout>
