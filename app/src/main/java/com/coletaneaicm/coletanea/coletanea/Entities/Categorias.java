@@ -1,11 +1,9 @@
 package com.coletaneaicm.coletanea.coletanea.Entities;
 
-import java.io.Serializable;
-
 /**
- * Created by cesar on 26/09/17.
+ * Created by cesar on 28/09/17.
  */
-public class Colecoes implements Serializable {
+public class Categorias {
 
     private Integer id;
 
@@ -26,5 +24,4 @@ public class Colecoes implements Serializable {
     public String toString() {
         return this.getNome();
     }
-
 }

@@ -67,13 +67,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+/*
         ListView listaColecoes = (ListView) findViewById(R.id.lista_colecoes);
 
         String[] alunos = {"Avulso", "Coletanea", "Materiais", "Instrumentos"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos);
-        listaColecoes.setAdapter(adapter);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos);
+        //listaColecoes.setAdapter(adapter);
 
         listaColecoes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -84,22 +84,31 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-
+*/
 
         Call call = (Call) new RetrofitInicializador().getColecoes().getColecoes();
 
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                ArrayList<Colecoes> res = (ArrayList<Colecoes>) response.body();
-                ListView listaColecoes = (ListView) findViewById(R.id.lista_colecoes);
-                //ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, res);
-                //listaColecoes.setAdapter(adapter);
 
+                ArrayList<Colecoes> res = (ArrayList<Colecoes>) response.body();
+                final ListView listaColecoes = (ListView) findViewById(R.id.lista_colecoes);
                 ArrayAdapter<Colecoes> adapter = new ArrayAdapter<Colecoes>(MainActivity.this, android.R.layout.simple_list_item_1, res);
                 listaColecoes.setAdapter(adapter);
 
-                Log.i("onResponse", "Requisicao com sucesso. " + res.get(0));
+                listaColecoes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Colecoes colecoes = (Colecoes) adapterView.getItemAtPosition(i);
+
+                        Intent irParaCategorias = new Intent(MainActivity.this, CategoriasActivity.class);
+                        irParaCategorias.putExtra("colecao", colecoes);
+
+                        startActivity(irParaCategorias);
+                    }
+                });
             }
 
             @Override

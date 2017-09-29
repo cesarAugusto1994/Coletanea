@@ -3,12 +3,23 @@ package com.coletaneaicm.coletanea.coletanea;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.coletaneaicm.coletanea.coletanea.Entities.Categorias;
+import com.coletaneaicm.coletanea.coletanea.Entities.Colecoes;
+import com.coletaneaicm.coletanea.coletanea.retrofit.RetrofitInicializador;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CategoriasActivity extends AppCompatActivity {
 
@@ -20,12 +31,31 @@ public class CategoriasActivity extends AppCompatActivity {
         TextView nomeColecao = (TextView) findViewById(R.id.nome_colecao);
         nomeColecao.setText("Categorias");
 
-        String[] categorias = { "Clamor", "Dedicacao", "Comunhao" };
+        Colecoes colecao = (Colecoes) getIntent().getSerializableExtra("colecao");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, categorias);
+        Call call = new RetrofitInicializador().getCategorias().getCategorias(colecao.getId());
 
-        ListView listaCategorias = (ListView) findViewById(R.id.lista_categorias);
-        listaCategorias.setAdapter(adapter);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            ArrayList<Categorias> res = (ArrayList<Categorias>) response.body();
+            ListView listacategorias = (ListView) findViewById(R.id.lista_categorias);
+            ArrayAdapter<Categorias> adapter = new ArrayAdapter<Categorias>(CategoriasActivity.this, android.R.layout.simple_list_item_1, res);
+            listacategorias.setAdapter(adapter);
+
+                Log.i("OnResponse", "Sucesso");
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                //Log.e("onFailure", "Requisicao Falhou. " + t.getMessage());
+                Log.e("onFailure", "Requisicao Falhou. " + call.request().url());
+
+                //Toast.makeText(CategoriasActivity.this, "Requisicao Falhou. " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

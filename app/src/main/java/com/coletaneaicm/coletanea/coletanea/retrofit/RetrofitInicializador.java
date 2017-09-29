@@ -1,6 +1,7 @@
 package com.coletaneaicm.coletanea.coletanea.retrofit;
 
 import com.coletaneaicm.coletanea.coletanea.Entities.Colecoes;
+import com.coletaneaicm.coletanea.coletanea.services.CategoriasService;
 import com.coletaneaicm.coletanea.coletanea.services.ColecoesService;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class RetrofitInicializador {
     private final Retrofit retrofit;
 
     public RetrofitInicializador() {
-        retrofit = new Retrofit.Builder().baseUrl("http://coletaneaicm.com/api/")
+        retrofit = new Retrofit.Builder().baseUrl("https://coletaneaicm.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -25,6 +26,9 @@ public class RetrofitInicializador {
         return retrofit.create(ColecoesService.class);
     }
 
+    public CategoriasService getCategorias() {
+        return retrofit.create(CategoriasService.class);
+    }
 
 
 }
